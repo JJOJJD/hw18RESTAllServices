@@ -18,6 +18,9 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Rodriguez System connected to mongoDB"));
 
 app.use(express.json());
+const cors = require("cors");
+app.use(cors());
+
 const customerRoutes = require("./routes/customerRoutes");
 app.use("/computerstore", customerRoutes);
 app.use(express.static("public"));
